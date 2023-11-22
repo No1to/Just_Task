@@ -32,4 +32,10 @@
         android:name="com.example.just_task.ui.onboarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.just_task.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>

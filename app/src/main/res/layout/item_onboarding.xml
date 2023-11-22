@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/skip"
-        android:textSize="16sp"
         android:textColor="@color/gray"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,21 +51,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
         app:layout_goneMarginTop="12dp"
         tools:text="https://www.twitch.tv/emn1to" />
-
-
-    <!--<com.google.android.material.progressindicator.CircularProgressIndicator
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:progress="75"
-        app:indicatorColor="@color/purple_500"
-        app:indicatorSize="80dp"
-        app:trackColor="@color/purple_200"
-        app:trackCornerRadius="10dp"
-        app:trackThickness="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_description"/>-->
 
 
     <Button

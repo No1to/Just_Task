@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.just_task.R
+import com.example.just_task.data.local.Pref
 import com.example.just_task.databinding.FragmentOnBoardingBinding
 import com.example.just_task.ui.onboarding.adapter.OnBoardingAdapter
 
@@ -16,6 +17,10 @@ class OnBoardingFragment : Fragment() {
     private val adapter = OnBoardingAdapter(this::onClick)
 
     private lateinit var binding: FragmentOnBoardingBinding
+
+    private val pref : Pref by lazy {
+        Pref(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,7 @@ class OnBoardingFragment : Fragment() {
     }
 
     private fun onClick() {
+        pref.onBoardingShow()
         findNavController().navigate(R.id.navigation_home)
     }
 }
