@@ -8,5 +8,9 @@
     <string name="description">Description</string>
     <string name="get_started">Get started</string>
     <string name="skip">Skip</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="title_empty_error">Заполните это поле</string>
 
 </resources>

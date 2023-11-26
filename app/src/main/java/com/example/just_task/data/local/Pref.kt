@@ -14,15 +14,15 @@ class Pref(context: Context) {
         pref.edit().putBoolean(SHOWED_KEY, true).apply()
     }
 
-    fun setNickName(firstName: String) {
-        pref.edit().putString(NICK_NAME_KEY, firstName).apply()
+    fun saveName(name: String) {
+        pref.edit().putString(NAME_KEY, name).apply()
     }
 
-    fun getNickName(): String {
-        return pref.getString(NICK_NAME_KEY, "").toString()
+    fun getName(): String {
+        return pref.getString(NAME_KEY, "").toString()
     }
 
-    fun setPassword(secondName: String) {
+    fun savePassword(secondName: String) {
         pref.edit().putString(PASSWORD, secondName).apply()
     }
 
@@ -42,7 +42,7 @@ class Pref(context: Context) {
     companion object {
         const val PREF_NAME = "pref.name"
         const val SHOWED_KEY = "showed.key"
-        const val NICK_NAME_KEY = "nick.name"
+        const val NAME_KEY = "name.key"
         const val PASSWORD = "password.key"
         const val USER_PICTURE_KEY = "user.picture"
     }

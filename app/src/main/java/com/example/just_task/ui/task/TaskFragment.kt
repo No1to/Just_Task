@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
+import com.example.just_task.App
+import com.example.just_task.R
 import com.example.just_task.databinding.FragmentTaskBinding
-import com.example.just_task.model.TaskModel
+import com.example.just_task.model.Task
 
 class TaskFragment : Fragment() {
 
@@ -28,21 +29,18 @@ class TaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSave.setOnClickListener {
-            val title = binding.etTitle.text.toString()
-            val description = binding.etDescription.text.toString()
-
-            if (title.isEmpty() && description.isEmpty()) {
-                Toast.makeText(requireContext(), "Все поля пустые!", Toast.LENGTH_SHORT).show()
-            } else {
-                val data = TaskModel(title = title, description = description)
-                setFragmentResult(SAVE_RESULT_KEY, bundleOf(TASK_KEY to data))
-                findNavController().navigateUp()
-            }
+            if (binding.etTitle.text!!.isNotEmpty()) {
+                save()
+            } else binding.etTitle.error = getString(R.string.title_empty_error)
         }
     }
 
-    companion object {
-        const val SAVE_RESULT_KEY = "task.result.key"
-        const val TASK_KEY = "task.key"
+    private fun save() {
+        val data = Task(
+            title = binding.etTitle.text.toString(),
+            description = binding.etDescription.text.toString()
+        )
+        App.db.taskDao().insert(data)
+        findNavController().navigateUp()
     }
 }

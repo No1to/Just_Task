@@ -1,6 +1,5 @@
 package com.example.just_task.ui.profile
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +13,9 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
 
-    private lateinit var pref: Pref
+    private val pref: Pref by lazy {
+        Pref(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,23 +27,22 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = Pref(requireContext())
 
-        saveNickName()
+        saveName()
         saveUserPicture()
 
     }
 
-    private fun saveUserPicture() {
+    private fun saveUserPicture () {
 
 
     }
 
-    private fun saveNickName() {
-        binding.etName.setText(pref.getNickName())
+    private fun saveName() {
+        binding.etName.setText(pref.getName())
 
         binding.etName.addTextChangedListener {
-            pref.setNickName(binding.etName.text.toString())
+            pref.saveName(binding.etName.text.toString())
         }
     }
 }
