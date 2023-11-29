@@ -30,7 +30,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Настройка RecyclerView и слушателей
         binding.rvTask.adapter = adapter
         setData()
         binding.fab.setOnClickListener {
@@ -38,39 +37,29 @@ class HomeFragment : Fragment() {
         }
     }
 
-    // Загрузка данных из базы данных и обновление RecyclerView
     private fun setData() {
         val data = App.db.taskDao().getAll()
         adapter.addTasks(data)
     }
 
-    // Обработчик долгого нажатия для элементов списка
     private fun onLongClick(task: Task) {
-        // Создание диалогового окна для подтверждения удаления
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle("Удалить?")
         alertDialog.setMessage("Вы уверены, что хотите удалить задачу?")
-
-        // Обработчик кнопки "Нет"
         alertDialog.setNegativeButton("Нет") { dialog, _ ->
             dialog.cancel()
         }
-
-        // Обработчик кнопки "Да"
         alertDialog.setPositiveButton("Да") { dialog, _ ->
-            // Удаление задачи из базы данных и обновление RecyclerView
             App.db.taskDao().delete(task)
             setData()
             dialog.dismiss()
         }
-
-        // Отображение диалогового окна
         alertDialog.create().show()
     }
 
-    // Очистка привязки при уничтожении фрагмента
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

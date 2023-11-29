@@ -1,12 +1,10 @@
 package com.example.just_task.ui.task
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.just_task.App
 import com.example.just_task.R
@@ -27,7 +25,6 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.btnSave.setOnClickListener {
             if (binding.etTitle.text!!.isNotEmpty()) {
                 save()
@@ -43,4 +40,5 @@ class TaskFragment : Fragment() {
         App.db.taskDao().insert(data)
         findNavController().navigateUp()
     }
+
 }

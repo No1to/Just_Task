@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.onboarding.OnBoardingFragment">
 
-
     <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
         android:id="@+id/worm_dots_indicator"
         android:layout_width="wrap_content"
@@ -21,9 +20,8 @@
         app:dotsStrokeColor="@color/purple_700"
         app:dotsStrokeWidth="2dp" />
 
-
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp2_onboarding"
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/worm_dots_indicator"

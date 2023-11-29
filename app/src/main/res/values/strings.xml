@@ -12,5 +12,4 @@
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="title_empty_error">Заполните это поле</string>
-
 </resources>

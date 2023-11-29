@@ -22,28 +22,10 @@ class Pref(context: Context) {
         return pref.getString(NAME_KEY, "").toString()
     }
 
-    fun savePassword(secondName: String) {
-        pref.edit().putString(PASSWORD, secondName).apply()
-    }
-
-    fun getPassword(): String {
-        return pref.getString(PASSWORD, " ").toString()
-    }
-
-    fun setPicture(image: String) {
-        pref.edit().putString(USER_PICTURE_KEY, image).apply()
-    }
-
-    fun getPicture(): String {
-        return pref.getString(USER_PICTURE_KEY, "").toString()
-    }
-
-
     companion object {
         const val PREF_NAME = "pref.name"
         const val SHOWED_KEY = "showed.key"
         const val NAME_KEY = "name.key"
-        const val PASSWORD = "password.key"
-        const val USER_PICTURE_KEY = "user.picture"
     }
+
 }

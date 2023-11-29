@@ -1,5 +1,6 @@
 package com.example.just_task.ui.home.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -11,7 +12,7 @@ class TaskAdapter(private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter
 
     private val taskList = arrayListOf<Task>()
 
-
+    @SuppressLint("NotifyDataSetChanged")
     fun addTasks(tasks: List<Task>) {
         taskList.clear()
         taskList.addAll(tasks)
@@ -37,7 +38,6 @@ class TaskAdapter(private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter
     }
 
     inner class TaskViewHolder(private val binding: ItemTaskBinding) : ViewHolder(binding.root) {
-
         fun bind(task: Task) = with(binding) {
             tvTitle.text = task.title
             tvDescription.text = task.description
@@ -47,4 +47,5 @@ class TaskAdapter(private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter
             }
         }
     }
+
 }

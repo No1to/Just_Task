@@ -9,6 +9,7 @@ import com.example.just_task.model.Task
 
 @Dao
 interface TaskDao {
+
     @Insert
     fun insert(task: Task)
 
@@ -18,6 +19,9 @@ interface TaskDao {
     @Update
     fun update(task: Task)
 
-    @Query(" SELECT * FROM task ORDER BY uid DESC ")
+    @Query(" SELECT * FROM task ORDER BY taskId DESC ")
     fun getAll(): List<Task>
+
+    @Query("SELECT * FROM task WHERE taskId = :taskId")
+    fun getTaskById(taskId: String): Task?
 }

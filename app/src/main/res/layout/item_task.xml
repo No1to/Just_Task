@@ -9,14 +9,12 @@
     android:id="@+id/item_task"
     app:cardElevation="4dp">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_card_task"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
         android:padding="4dp">
-
 
         <TextView
             android:id="@+id/tv_title"
@@ -38,8 +36,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="https://www.twitch.tv/emn1to" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>
