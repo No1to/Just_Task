@@ -1,14 +1,18 @@
 package com.example.just_task.ui.home.adapter
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.just_task.R
 import com.example.just_task.databinding.ItemTaskBinding
 import com.example.just_task.model.Task
 
-class TaskAdapter(private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private val onLongClick: (Task) -> Unit, private val onClick: (Task) -> Unit) :
+    Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val taskList = arrayListOf<Task>()
 
@@ -44,6 +48,9 @@ class TaskAdapter(private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter
             itemTask.setOnLongClickListener {
                 onLongClick(task)
                 false
+            }
+            itemTask.setOnClickListener {
+              onClick(task)
             }
         }
     }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.just_task.App
@@ -16,7 +17,7 @@ import com.example.just_task.ui.home.adapter.TaskAdapter
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val adapter = TaskAdapter(this::onLongClick)
+    private val adapter = TaskAdapter(this::onLongClick, this::onClick)
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -60,6 +61,14 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onClick(task: Task) {
+        findNavController().navigate(R.id.taskFragment, bundleOf(TASK_EDIT_KEY to task))
+    }
+
+    companion object{
+        const val TASK_EDIT_KEY = "task.edit.key"
     }
 
 }

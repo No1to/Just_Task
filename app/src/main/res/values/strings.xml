@@ -12,4 +12,9 @@
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="title_empty_error">Заполните это поле</string>
+    <string name="update">Update</string>
+    <string name="send">Send</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="confirm">Confirm</string>
+    <string name="required">Required</string>
 </resources>

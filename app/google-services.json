@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691349007042",
+    "project_id": "just-task-531ac",
+    "storage_bucket": "just-task-531ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691349007042:android:cc87e36bea9d5263c5e95b",
+        "android_client_info": {
+          "package_name": "com.example.just_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEq0itZmXjQTV8euD95BFBr8tsrdYIXEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

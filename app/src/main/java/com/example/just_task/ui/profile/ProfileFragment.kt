@@ -29,13 +29,42 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         saveName()
+        passwordFocusListener()
     }
+
 
     private fun saveName() {
         binding.etName.setText(pref.getName())
+        binding.etPassword.setText(pref.getPassword())
+
         binding.etName.addTextChangedListener {
             pref.saveName(binding.etName.text.toString())
         }
+        binding.etPassword.addTextChangedListener {
+            pref.savePassword(binding.etPassword.text.toString())
+        }
+    }
+
+    private fun passwordFocusListener() {
+        binding.etPassword.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                binding.passwordContainer.helperText = validPassword()
+            }
+        }
+    }
+
+    private fun validPassword(): String? {
+        val password = binding.etPassword.text.toString()
+        if (!password.matches(".*[A-Z].*".toRegex())) {
+            return "Must Contain 1 Upper-case Character"
+        }
+        if (!password.matches(".*[a-z].*".toRegex())) {
+            return "Must Contain 1 Lower-case Character"
+        }
+        if (!password.matches(".*[@#\$%^&+=].*".toRegex())) {
+            return "Must Contain 1 Special Character (@#\$%^&+=)"
+        }
+        return null
     }
 
 }

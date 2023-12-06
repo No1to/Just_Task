@@ -21,7 +21,4 @@ interface TaskDao {
 
     @Query(" SELECT * FROM task ORDER BY taskId DESC ")
     fun getAll(): List<Task>
-
-    @Query("SELECT * FROM task WHERE taskId = :taskId")
-    fun getTaskById(taskId: String): Task?
 }
