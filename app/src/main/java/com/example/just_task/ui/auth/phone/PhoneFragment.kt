@@ -24,9 +24,7 @@ class PhoneFragment : Fragment() {
     private val countryCode = "+996"
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {}
-
         override fun onVerificationFailed(e: FirebaseException) {}
 
         override fun onCodeSent(
@@ -47,12 +45,9 @@ class PhoneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Устанавливаем текст и делаем EditText изменяемым
         binding.etPhone.setText(countryCode)
         binding.etPhone.setSelection(binding.etPhone.text?.length ?: 0)
 
-        // Добавляем TextWatcher для автоматического добавления кода страны
         binding.etPhone.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 charSequence: CharSequence?,
@@ -77,11 +72,7 @@ class PhoneFragment : Fragment() {
             }
         })
 
-
         binding.btnSend.setOnClickListener {
-            // Исключаем код страны из номера телефона
-            val phoneNumber = binding.etPhone.text.toString().substring(countryCode.length)
-
             val options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
                 .setPhoneNumber(phoneNumber) // Phone number to verify
                 .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
