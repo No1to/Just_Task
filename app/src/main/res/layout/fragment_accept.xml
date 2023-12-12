@@ -26,6 +26,7 @@
             android:layout_height="match_parent"
             android:hint="@string/phone_number"
             android:inputType="number"
+            android:maxLength="6"
             android:lines="1" />
 
         <Button

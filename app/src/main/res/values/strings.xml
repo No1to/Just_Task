@@ -17,4 +17,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="confirm">Confirm</string>
     <string name="required">Required</string>
+    <string name="author">Author</string>
+    <string name="add">Add</string>
+    <string name="success_book_saved">Kнига сохранена!</string>
 </resources>

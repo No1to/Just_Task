@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvTask.adapter = adapter
         setData()
-        binding.fab.setOnClickListener {
+        binding.fabTask.setOnClickListener {
             findNavController().navigate(R.id.taskFragment)
         }
     }

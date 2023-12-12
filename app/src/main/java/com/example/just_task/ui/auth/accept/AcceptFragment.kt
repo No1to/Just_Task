@@ -47,5 +47,4 @@ class AcceptFragment : Fragment() {
                 makeToast(it.message.toString())
             }
     }
-
 }

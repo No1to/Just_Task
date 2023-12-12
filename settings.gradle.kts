@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //https://stackoverflow.com/questions/50389211/android-studio-maven-url-https-jitpack-io-cant-download
+        maven { url = uri("https://www.jitpack.io" ) }
     }
 }
 
